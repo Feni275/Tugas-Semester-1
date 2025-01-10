@@ -1,37 +1,33 @@
 #include <stdio.h>
 
 int main() {
-	int kode, harga;
-	char jenis;
-	float diskon, harga_diskon;
-	
-	printf("Masukkan kode barang: ");
-	scanf("%d", &kode);
-	
-	printf("Masukkan jenis barang (A, B, atau C): ");
-	scanf(" %c", &jenis);
-	
-	printf("Masukkan harga barang: ");
-	scanf("%d", &harga);
-	
-	switch (jenis) {
-		case 'A':
-			diskon = 0.1;
-			break;
-		case 'B':
-			diskon = 0.15;
-			break;
-		case 'C':
-			diskon = 0.2;
-			break;
-		default:
-			printf("Jenis barang tidak valid.\n");
-			return 1;
-	}
-	
-	harga_diskon = harga - (harga * diskon);
-	
-	printf("Jenis barang %c mendapat diskon %.0f%%, Harga setelah didiskon = %.0f\n", jenis, diskon * 100, harga_diskon);
-	
-	return 0;
+    int kode;
+    char jenis;
+    float harga, harga_setelah_diskon, diskon;
+
+    printf("Masukkan kode: ");
+    scanf("%d", &kode);
+    
+    printf("Masukkan jenis (A/B/C): ");
+    scanf(" %c", &jenis);
+    
+    printf("Masukkan harga: ");
+    scanf("%f", &harga);
+
+    if (jenis == 'A' || jenis == 'a') {
+        diskon = 0.10; // 10%
+    } else if (jenis == 'B' || jenis == 'b') {
+        diskon = 0.15; // 15%
+    } else if (jenis == 'C' || jenis == 'c') {
+        diskon = 0.20; // 20%
+    } else {
+        printf("Jenis barang tidak valid!\n");
+        return 1;
+    }
+
+    harga_setelah_diskon = harga - (harga * diskon);
+
+    printf("Jenis barang %c mendapat diskon = %.0f%%, Harga setelah didiskon = %.2f\n", jenis, diskon * 100, harga_setelah_diskon);
+
+    return 0;
 }
